@@ -1,4 +1,4 @@
-(ns financeiro.handler
+(ns financial.handler
   (:require [compojure.core :refer [GET
                                     defroutes]]
             [compojure.route :as route]

@@ -1,10 +1,10 @@
-(ns financeiro.handler-test
+(ns financial.handler-test
   (:require [midje.sweet :refer [fact
                                  facts
                                  =>
                                  against-background]]
             [ring.mock.request :as mock]
-            [financeiro.handler :refer [app]]
+            [financial.handler :refer [app]]
             [cheshire.core :as json]))
 
 (facts "return 'Hello World' in root route"
@@ -35,4 +35,4 @@
       (:body response) => "{\"saldo\":0}")
 
     (fact "the format is 'application/json'"
-          (get-in response [:headers "Content-Type"]) => "application/json; charset=utf-8")))
+      (get-in response [:headers "Content-Type"]) => "application/json; charset=utf-8")))

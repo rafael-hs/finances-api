@@ -1,6 +1,6 @@
-(ns financeiro.auxiliaries
+(ns financial.auxiliaries
   (:require [ring.adapter.jetty :refer [run-jetty]]
-            [financeiro.handler :refer [app]]
+            [financial.handler :refer [app]]
             [clj-http.client :as http]))
 
 (def server (atom nil))
