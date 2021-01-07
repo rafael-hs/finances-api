@@ -4,8 +4,10 @@
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [compojure "1.6.1"]
+                 [cheshire "5.8.1"]
                  [ring/ring-defaults "0.3.2"]
-                 [cheshire "5.8.1"]]
+                 [ring/ring-json "0.4.0"]
+                 [clj-http "3.9.1"]]
   :plugins [[lein-ring "0.12.5"]
             [lein-midje "3.2.1"]
             [lein-cloverage "1.1.2"]]
@@ -17,6 +19,6 @@
                         [midje "1.9.9"]
                         [ring/ring-core "1.7.1"]
                         [ring/ring-jetty-adapter "1.7.1"]
-                        [clj-http "3.9.1"]]}}
+                        ]}}
   :cljfmt {:remove-consecutive-blank-lines? false
            :indents ^:replace {#"^[-*+!?_a-zA-Z]" [[:inner 0]]}})
