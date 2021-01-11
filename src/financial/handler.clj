@@ -1,12 +1,9 @@
 (ns financial.handler
-  (:require [compojure.core :refer [GET
-                                    POST
-                                    defroutes]]
+  (:require [compojure.core :refer [GET POST defroutes]]
             [compojure.route :as route]
-            [ring.middleware.defaults :refer [wrap-defaults
-                                              api-defaults]]
-            [ring.middleware.json :refer [wrap-json-body]]
             [cheshire.core :as json]
+            [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
+            [ring.middleware.json :refer [wrap-json-body]]
             [financial.db :as db]))
 
 (defn as-json [content & [status]]

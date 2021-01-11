@@ -1,10 +1,9 @@
 (ns financial.handler-test
-  (:require [midje.sweet :refer [fact facts
-                                 => against-background]]
+  (:require [midje.sweet :refer [fact facts => against-background]]
             [ring.mock.request :as mock]
+            [cheshire.core :as json]
             [financial.handler :refer [app]]
-            [financial.db :as db]
-            [cheshire.core :as json]))
+            [financial.db :as db]))
 
 (facts "return 'Hello World' in root route"
   (let [response (app (mock/request :get "/"))]
@@ -43,10 +42,14 @@
   (let [response
         (app (->
                (mock/request :post "/transactions")
-               (mock/json-body {:valor 10 :type "revenue"})))]
+               (mock/json-body {:value 10 :type "revenue"})))]
 
     (fact "The status code is equal 201"
       (:status response) => 201)
 
     (fact "The body text is a JSON with content send and id"
-      (:body response) => "{\"id\":1,\"value\":10,\"type\":\"revenue\"}")))
+      (:body response) =>
+      "{\"id\":1,\"value\":10,\"type\":\"revenue\"}")
+
+    (fact "Print"
+      (println response))))
